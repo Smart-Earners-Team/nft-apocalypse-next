@@ -1,0 +1,1030 @@
+[
+    {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "inputs": [
+            {
+                "indexed": true,
+                "name": "owner",
+                "internalType": "address",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "name": "spender",
+                "internalType": "address",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "name": "value",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "name": "Approval",
+        "anonymous": false,
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "indexed": true,
+                "name": "previousOwner",
+                "internalType": "address",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "name": "newOwner",
+                "internalType": "address",
+                "type": "address"
+            }
+        ],
+        "name": "OwnershipTransferred",
+        "anonymous": false,
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "indexed": false,
+                "name": "tokensSwapped",
+                "internalType": "uint256",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "name": "ethReceived",
+                "internalType": "uint256",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "name": "tokensIntoLiqudity",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "name": "SwapAndLiquify",
+        "anonymous": false,
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "indexed": false,
+                "name": "enabled",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "name": "SwapAndLiquifyEnabledUpdated",
+        "anonymous": false,
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "indexed": false,
+                "name": "amountIn",
+                "internalType": "uint256",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "name": "path",
+                "internalType": "address[]",
+                "type": "address[]"
+            }
+        ],
+        "name": "SwapETHForTokens",
+        "anonymous": false,
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "indexed": false,
+                "name": "amountIn",
+                "internalType": "uint256",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "name": "path",
+                "internalType": "address[]",
+                "type": "address[]"
+            }
+        ],
+        "name": "SwapTokensForETH",
+        "anonymous": false,
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "indexed": true,
+                "name": "from",
+                "internalType": "address",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "name": "to",
+                "internalType": "address",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "name": "value",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "name": "Transfer",
+        "anonymous": false,
+        "type": "event"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "inputs": [],
+        "name": "_maxTxAmount",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "inputs": [],
+        "name": "_totalTaxIfBuying",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "inputs": [],
+        "name": "_totalTaxIfSelling",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "inputs": [],
+        "name": "_walletMax",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "address",
+                "type": "address"
+            }
+        ],
+        "inputs": [],
+        "name": "addressDev",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "inputs": [
+            {
+                "name": "owner",
+                "internalType": "address",
+                "type": "address"
+            },
+            {
+                "name": "spender",
+                "internalType": "address",
+                "type": "address"
+            }
+        ],
+        "name": "allowance",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "inputs": [
+            {
+                "name": "spender",
+                "internalType": "address",
+                "type": "address"
+            },
+            {
+                "name": "amount",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "name": "approve",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "inputs": [
+            {
+                "name": "account",
+                "internalType": "address",
+                "type": "address"
+            }
+        ],
+        "name": "balanceOf",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "newPairAddress",
+                "internalType": "address",
+                "type": "address"
+            }
+        ],
+        "inputs": [
+            {
+                "name": "newRouterAddress",
+                "internalType": "address",
+                "type": "address"
+            }
+        ],
+        "name": "changeRouterVersion",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "inputs": [],
+        "name": "checkWalletLimit",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "address",
+                "type": "address"
+            }
+        ],
+        "inputs": [],
+        "name": "deadAddress",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "uint8",
+                "type": "uint8"
+            }
+        ],
+        "inputs": [],
+        "name": "decimals",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "inputs": [
+            {
+                "name": "spender",
+                "internalType": "address",
+                "type": "address"
+            },
+            {
+                "name": "subtractedValue",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "name": "decreaseAllowance",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [],
+        "inputs": [
+            {
+                "name": "newValue",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "name": "enableDisableWalletLimit",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "inputs": [],
+        "name": "getBlock",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "inputs": [],
+        "name": "getCirculatingSupply",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "inputs": [],
+        "name": "getSaleAt",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "inputs": [],
+        "name": "getTime",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "inputs": [
+            {
+                "name": "spender",
+                "internalType": "address",
+                "type": "address"
+            },
+            {
+                "name": "addedValue",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "name": "increaseAllowance",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "inputs": [
+            {
+                "name": "",
+                "internalType": "address",
+                "type": "address"
+            }
+        ],
+        "name": "isBot",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "inputs": [
+            {
+                "name": "",
+                "internalType": "address",
+                "type": "address"
+            }
+        ],
+        "name": "isExcludedFromFee",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "inputs": [
+            {
+                "name": "",
+                "internalType": "address",
+                "type": "address"
+            }
+        ],
+        "name": "isMarketPair",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "inputs": [
+            {
+                "name": "",
+                "internalType": "address",
+                "type": "address"
+            }
+        ],
+        "name": "isWalletLimitExempt",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "address payable",
+                "type": "address"
+            }
+        ],
+        "inputs": [],
+        "name": "marketingWalletAddress",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "inputs": [],
+        "name": "minimumTokensBeforeSwapAmount",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "string",
+                "type": "string"
+            }
+        ],
+        "inputs": [],
+        "name": "name",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "address",
+                "type": "address"
+            }
+        ],
+        "inputs": [],
+        "name": "owner",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [],
+        "inputs": [],
+        "name": "renounceOwnership",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "inputs": [],
+        "name": "sale",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [],
+        "inputs": [
+            {
+                "name": "newLiquidityTax",
+                "internalType": "uint256",
+                "type": "uint256"
+            },
+            {
+                "name": "newMarketingTax",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "name": "setBuyTaxes",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [],
+        "inputs": [
+            {
+                "name": "newLiquidityShare",
+                "internalType": "uint256",
+                "type": "uint256"
+            },
+            {
+                "name": "newMarketingShare",
+                "internalType": "uint256",
+                "type": "uint256"
+            },
+            {
+                "name": "newLotteryShare",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "name": "setDistributionSettings",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [],
+        "inputs": [
+            {
+                "name": "holder",
+                "internalType": "address",
+                "type": "address"
+            },
+            {
+                "name": "exempt",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "name": "setIsBot",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [],
+        "inputs": [
+            {
+                "name": "account",
+                "internalType": "address",
+                "type": "address"
+            },
+            {
+                "name": "newValue",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "name": "setIsExcludedFromFee",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [],
+        "inputs": [
+            {
+                "name": "holder",
+                "internalType": "address",
+                "type": "address"
+            },
+            {
+                "name": "exempt",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "name": "setIsTxLimitExempt",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [],
+        "inputs": [
+            {
+                "name": "holder",
+                "internalType": "address",
+                "type": "address"
+            },
+            {
+                "name": "exempt",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "name": "setIsWalletLimitExempt",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [],
+        "inputs": [
+            {
+                "name": "account",
+                "internalType": "address",
+                "type": "address"
+            },
+            {
+                "name": "newValue",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "name": "setMarketPairStatus",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [],
+        "inputs": [
+            {
+                "name": "newAddress",
+                "internalType": "address",
+                "type": "address"
+            }
+        ],
+        "name": "setMarketingWalletAddress",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [],
+        "inputs": [
+            {
+                "name": "maxTxPercentage",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "name": "setMaxTxAmount",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [],
+        "inputs": [
+            {
+                "name": "newLimit",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "name": "setNumTokensBeforeSwap",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [],
+        "inputs": [
+            {
+                "name": "newLiquidityTax",
+                "internalType": "uint256",
+                "type": "uint256"
+            },
+            {
+                "name": "newMarketingTax",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "name": "setSellTaxes",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [],
+        "inputs": [
+            {
+                "name": "newValue",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "name": "setSwapAndLiquifyByLimitOnly",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [],
+        "inputs": [
+            {
+                "name": "_enabled",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "name": "setSwapAndLiquifyEnabled",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [],
+        "inputs": [
+            {
+                "name": "_tradingOpen",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "name": "setTrading",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [],
+        "inputs": [
+            {
+                "name": "newLimitPercentage",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "name": "setWalletLimit",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [],
+        "inputs": [
+            {
+                "name": "_addressDev",
+                "internalType": "address",
+                "type": "address"
+            }
+        ],
+        "name": "setaddressDev",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [],
+        "inputs": [
+            {
+                "name": "_blockBan",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "name": "setblockBan",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "inputs": [],
+        "name": "swapAndLiquifyByLimitOnly",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "inputs": [],
+        "name": "swapAndLiquifyEnabled",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "string",
+                "type": "string"
+            }
+        ],
+        "inputs": [],
+        "name": "symbol",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "inputs": [],
+        "name": "totalSupply",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "inputs": [],
+        "name": "tradingOpen",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "inputs": [
+            {
+                "name": "recipient",
+                "internalType": "address",
+                "type": "address"
+            },
+            {
+                "name": "amount",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "name": "transfer",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "bool",
+                "type": "bool"
+            }
+        ],
+        "inputs": [
+            {
+                "name": "sender",
+                "internalType": "address",
+                "type": "address"
+            },
+            {
+                "name": "recipient",
+                "internalType": "address",
+                "type": "address"
+            },
+            {
+                "name": "amount",
+                "internalType": "uint256",
+                "type": "uint256"
+            }
+        ],
+        "name": "transferFrom",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [],
+        "inputs": [
+            {
+                "name": "newOwner",
+                "internalType": "address",
+                "type": "address"
+            }
+        ],
+        "name": "transferOwnership",
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "address",
+                "type": "address"
+            }
+        ],
+        "inputs": [],
+        "name": "uniswapPair",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "outputs": [
+            {
+                "name": "",
+                "internalType": "contract IUniswapV2Router02",
+                "type": "address"
+            }
+        ],
+        "inputs": [],
+        "name": "uniswapV2Router",
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "stateMutability": "payable",
+        "type": "receive"
+    }
+]

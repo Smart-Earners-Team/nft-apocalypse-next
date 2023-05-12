@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState } from 'react';
 import Layout from '@/components/Layout';
 import { Helmet } from 'react-helmet';
@@ -5,6 +6,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { GlobalTypes } from '../../globals';
 import Button from '../../components/Buttons/Button';
+import Image from 'next/image';
 
 // const sort = [
 //   { order: 'Price low to high' },
@@ -12,7 +14,7 @@ import Button from '../../components/Buttons/Button';
 // ]
 
 type FarmProps = {
-  id: string;
+  contract: `0x${string}`
 };
 
 interface ModalProps extends GlobalTypes {
@@ -45,7 +47,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, className }) =
 };
 
 
-const Farm = ({ id }: FarmProps) => {
+const Farm = ({ contract }: FarmProps) => {
 
   const bgImage = ""
   const apeImage = ""
@@ -64,7 +66,7 @@ const Farm = ({ id }: FarmProps) => {
     <React.Fragment>
       <Helmet>
         <link rel="icon" href="../images/icon.png" />
-        <title>{id}</title>
+        <title>{contract}</title>
       </Helmet>
 
       <Layout farmNavbar footer>
@@ -76,7 +78,7 @@ const Farm = ({ id }: FarmProps) => {
           </div>
 
           <div className='h-fit absolute top-[165px] md:top-[250px] left-[10%] w-[30%] md:w-[20%] rounded-[30px] md:rounded-[60px] bg-cover bg-gradient-to-b from-[#887d748b] to-[#FECEA3] p-2'>
-            <img src={bgImage!} alt='' className='rounded-[40px] md:rounded-[70px]' />
+            <img  src={bgImage!} alt='' className='rounded-[40px] md:rounded-[70px]' />
           </div>
 
           <div className='absolute top-[35px] right-[15%] py-8 md:py-16 z-0'>
@@ -197,7 +199,7 @@ const Farm = ({ id }: FarmProps) => {
 
               <div className='border border-inherit rounded-3xl p-3 relative mx-2'>
 
-                <img src={apeImage!} alt='' className='rounded-3xl' />
+                <Image src={apeImage!} alt='' className='rounded-3xl' />
 
                 <div className='my-3 grid justify-center'>
                   <div className='text-md px-1'>Majestic APO 294</div>
@@ -208,7 +210,7 @@ const Farm = ({ id }: FarmProps) => {
 
               <div className='border border-inherit rounded-3xl p-3 relative mx-2'>
 
-                <img src={apeImage!} alt='' className='rounded-3xl' />
+                <Image src={apeImage!} alt='' className='rounded-3xl' />
 
                 <div className='my-3 grid justify-center'>
                   <div className='text-md px-1'>Majestic APO 294</div>
@@ -219,7 +221,7 @@ const Farm = ({ id }: FarmProps) => {
 
               <div className='border border-inherit rounded-3xl p-3 relative mx-2'>
 
-                <img src={apeImage!} alt='' className='rounded-3xl' />
+                <Image src={apeImage!} alt='' className='rounded-3xl' />
 
                 <div className='my-3 grid justify-center'>
                   <div className='text-md px-1'>Majestic APO 294</div>
@@ -230,7 +232,7 @@ const Farm = ({ id }: FarmProps) => {
 
               <div className='border border-inherit rounded-3xl p-3 relative mx-2'>
 
-                <img src={apeImage!} alt='' className='rounded-3xl' />
+                <Image src={apeImage!} alt='' className='rounded-3xl' />
 
                 <div className='my-3 grid justify-center'>
                   <div className='text-md px-1'>Majestic APO 294</div>
@@ -297,7 +299,7 @@ const Farm = ({ id }: FarmProps) => {
 
               <div className='border border-inherit rounded-3xl p-3 relative mx-2'>
 
-                <img src={apeImage!} alt='' className='rounded-3xl' />
+                <Image src={apeImage!} alt='' className='rounded-3xl' />
 
                 <div className='my-3 grid justify-center'>
                   <div className='text-md px-1'>Majestic APO 294</div>
@@ -308,7 +310,7 @@ const Farm = ({ id }: FarmProps) => {
 
               <div className='border border-inherit rounded-3xl p-3 relative mx-2'>
 
-                <img src={apeImage!} alt='' className='rounded-3xl' />
+                <Image src={apeImage!} alt='' className='rounded-3xl' />
 
                 <div className='my-3 grid justify-center'>
                   <div className='text-md px-1'>Majestic APO 294</div>
@@ -319,7 +321,7 @@ const Farm = ({ id }: FarmProps) => {
 
               <div className='border border-inherit rounded-3xl p-3 relative mx-2'>
 
-                <img src={apeImage!} alt='' className='rounded-3xl' />
+                <Image src={apeImage!} alt='' className='rounded-3xl' />
 
                 <div className='my-3 grid justify-center'>
                   <div className='text-md px-1'>Majestic APO 294</div>
@@ -330,7 +332,7 @@ const Farm = ({ id }: FarmProps) => {
 
               <div className='border border-inherit rounded-3xl p-3 relative mx-2'>
 
-                <img src={apeImage!} alt='' className='rounded-3xl' />
+                <Image src={apeImage!} alt='' className='rounded-3xl' />
 
                 <div className='my-3 grid justify-center'>
                   <div className='text-md px-1'>Majestic APO 294</div>

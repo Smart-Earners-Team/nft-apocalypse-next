@@ -22,7 +22,7 @@ async function useGetPools(rpc: string) {
     const getCA = await factoryContract.getPool(i); //getPool
     const poolName = await constructPoolName(getCA)
     
-    poolContracts.push({ i, getCA, poolName });
+    poolContracts.push({ id: i, contract: getCA, name: poolName, apr: 1.00, tvl: 1.00 });
   }
 
   // function that contruct pool name with the stakedToken address and rewardToken Address

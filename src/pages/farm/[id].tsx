@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import Layout from '@/components/Layout';
 import { Helmet } from 'react-helmet';
-// import Carousel from 'react-multi-carousel',
-
+import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { GlobalTypes } from '../../globals';
 import Button from '../../components/Buttons/Button';

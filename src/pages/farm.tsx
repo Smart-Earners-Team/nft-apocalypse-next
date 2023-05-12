@@ -1,4 +1,5 @@
-import React from 'react'
+/* eslint-disable @next/next/no-img-element */
+import React, { use } from 'react'
 import { Helmet } from 'react-helmet';
 import { Footer } from '@/components/Footer';
 import Button from '@/components/Buttons/Button';
@@ -6,76 +7,16 @@ import Layout from '@/components/Layout';
 import useAuthWallet from '@/hooks/useWallet';
 import useActiveWeb3React from '@/hooks/useActiveWeb3React';
 import Link from 'next/link';
+import useGetPools from '@/hooks/useGetPools';
+import { FACTORY_ADDRESS } from '@/config/constants/types';
+import Image from 'next/image';
 // import { BiCaretRight } from 'react-icons/bi';
 
-const pool = [
-  {
-    id: 1,
-    name: "NFTx APO",
-    apr: 1.0,
-    tvl: 1.10,
-    earned: 1.11,
-  },
-  {
-    id: 2,
-    name: "NFTx APO",
-    apr: 0.0,
-    tvl: 0.0,
-    earned: 0.0,
-  },
-  {
-    id: 3,
-    name: "NFTx APO",
-    apr: 0.0,
-    tvl: 0.0,
-    earned: 0.0,
-  },
-  {
-    id: 4,
-    name: "NFTx APO",
-    apr: 0.0,
-    tvl: 0.0,
-    earned: 0.0,
-  },
-  {
-    id: 5,
-    name: "NFTx APO",
-    apr: 0.0,
-    tvl: 0.0,
-    earned: 0.0,
-  },
-  {
-    id: 6,
-    name: "NFTx APO",
-    apr: 0.0,
-    tvl: 0.0,
-    earned: 0.0,
-  },
-  {
-    id: 7,
-    name: "NFTx APO",
-    apr: 0.0,
-    tvl: 0.0,
-    earned: 0.0,
-  },
-  {
-    id: 8,
-    name: "NFTx APO",
-    apr: 0.0,
-    tvl: 0.0,
-    earned: 0.0,
-  },
-  {
-    id: 9,
-    name: "NFTx APO",
-    apr: 0.0,
-    tvl: 0.0,
-    earned: 0.0,
-  },
-]
-const Farm = () => {
 
-  console.log(pool)
+const Farm = () => {
+  const { pools } = useGetPools({rpc: "https://bsc-dataseed.binance.org/", factoryCA: FACTORY_ADDRESS});
+
+  console.log(pools)
 
   const { onPresentConnectModal } = useAuthWallet();
   const { account } = useActiveWeb3React()
@@ -129,13 +70,13 @@ const Farm = () => {
 
         <div className='mx-[20%] md:mx-[20%] grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
 
-          {pool.map((item, index) => {
+          {pools && pools.map((item, index) => {
             return (
               <div key={index} className='w-full mx-auto relative z-1 rounded-2xl border border-[#AAD5E3] p-2 shadow-sm duration-300 ease-in-out'>
 
                 <div className='rounded-2xl bg-[#D8F2FB]/90 border border-[#AAD5E3] p-2 mx-auto'>
                   <img src='/images/robloxNFT.png' alt='roblox' className='w-[120px] left-[22%] md:left-[22%] select-none pointer-events-none' />
-                  <Link href={`/farm/${item.id}`}>
+                  <Link href={`/farm/${item.contract}`}>
                     <Button title={item.name} className='!mx-auto !w-[150px] !bg-white/70 shadow-lg' />
                   </Link>
                 </div>

@@ -1,6 +1,9 @@
 // viewed
-import { DeserializedFarmConfig, SerializedFarmConfig } from "../config/constants/types";
-import BigNumber from "bignumber.js";
+import {
+  DeserializedFarmConfig,
+  SerializedFarmConfig,
+} from "../config/constants/types";
+import { BigNumber } from "ethers";
 import { ChainId } from "../config/constants";
 import { TokenInfo, TokenList, Tags } from "@uniswap/token-lists";
 import { Token } from "../config/entities/token";
@@ -82,7 +85,13 @@ export class WrappedTokenInfo extends Token {
   public readonly tags: TagInfo[];
 
   constructor(tokenInfo: TokenInfo, tags: TagInfo[]) {
-    super(tokenInfo.chainId, tokenInfo.address, tokenInfo.decimals, tokenInfo.symbol, tokenInfo.name);
+    super(
+      tokenInfo.chainId,
+      tokenInfo.address,
+      tokenInfo.decimals,
+      tokenInfo.symbol,
+      tokenInfo.name
+    );
     this.tokenInfo = tokenInfo;
     this.tags = tags;
   }
@@ -98,7 +107,9 @@ export interface TagInfo extends TagDetails {
 }
 
 export type TokenAddressMap = Readonly<{
-  [chainId in ChainId]: Readonly<{ [tokenAddress: string]: { token: WrappedTokenInfo; list: TokenList } }>;
+  [chainId in ChainId]: Readonly<{
+    [tokenAddress: string]: { token: WrappedTokenInfo; list: TokenList };
+  }>;
 }>;
 
 /**

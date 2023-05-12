@@ -1,28 +1,41 @@
 import { ethers } from "ethers";
 import factoryABI from "../utils/NFTxNFTPoolFactoryABI.json"; //NFTxNftPoolABI.json
 import poolAbi from "../utils/NFTxNftPoolABI.json"; //
-import { FACTORY_CONTRACT } from "../utils/contracts";
+import { type } from "os";
+import { useState, useEffect } from "react";
+import { pool } from "@/globals/pool";
+// import { FACTORY_CONTRACT } from "../utils/contracts";
 
-async function useGetPools(rpc: string) {
+type getPoolType = {
+  rpc: string;
+  factoryCA: `0x${string}`;
+};
+
+function useGetPools({ rpc, factoryCA }: getPoolType) {
+  const [pools, setPools] = useState(pool);
   let poolContracts = new Array();
 
-  const provider = ethers.providers.JsonRpcProvider(rpc);
+  const provider = new ethers.providers.JsonRpcProvider(rpc);
 
-  const factoryContract = new ethers.Contract(
-    FACTORY_CONTRACT,
-    factoryABI,
-    provider
-  );
+  const factoryContract = new ethers.Contract(factoryCA, factoryABI, provider);
 
-  // fetch all pools from the blockchain
-  const howManyPools = await factoryContract.howManyPools();
+  async function getPools() {
+    // fetch all pools from the blockchain
+    const howManyPools = await factoryContract.howManyPools();
 
-  for (let i = 0; i < howManyPools; i++) {
-    //get contracts from the blockchain using i as the id's input
-    const getCA = await factoryContract.getPool(i); //getPool
-    const poolName = await constructPoolName(getCA)
-    
-    poolContracts.push({ i, getCA, poolName });
+    for (let i = 0; i < howManyPools; i++) {
+      //get contracts from the blockchain using i as the id's input
+      const getCA = await factoryContract.getPool(i); //getPool
+      const poolName = await constructPoolName(getCA);
+
+      poolContracts.push({
+        id: i,
+        contract: getCA,
+        name: poolName,
+        apr: 1.0,
+        tvl: 1.0,
+      });
+    }
   }
 
   // function that contruct pool name with the stakedToken address and rewardToken Address
@@ -33,10 +46,10 @@ async function useGetPools(rpc: string) {
     const stakedToken = await poolContract.stakedToken();
     const rewardToken = await poolContract.rewardToken();
 
-    const stakedSymbol = await getContractSymbol(stakedToken)
-    const rewardSymbol = await getContractSymbol(rewardToken)
+    const stakedSymbol = await getContractSymbol(stakedToken);
+    const rewardSymbol = await getContractSymbol(rewardToken);
 
-    return `${stakedSymbol} - ${rewardSymbol}`
+    return `${stakedSymbol} - ${rewardSymbol}`;
   }
 
   async function getContractSymbol(tokenAddress: string) {
@@ -60,7 +73,14 @@ async function useGetPools(rpc: string) {
     return await poolContract.symbol();
   }
 
-  return poolContracts;
+  useEffect(() => {
+    if(rpc && factoryCA){
+      getPools().then(() => setPools(poolContracts));
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[rpc, factoryCA]);
+
+  return { pools: pools };
 }
 
 export default useGetPools;

@@ -3,7 +3,7 @@ import Button from '../Buttons/Button'
 
 export const Intro = () => {
 
-    const image = `../../assets/images/blocks.jpg`
+    const image = `/images/blocks.jpg`
 
     return (
 

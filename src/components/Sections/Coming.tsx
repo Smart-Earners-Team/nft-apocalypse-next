@@ -2,7 +2,7 @@ import * as React from 'react'
 
 export const ComingSoon = () => {
 
-    const image = `../../assets/images/bitzoom.jpg`
+    const image = `/images/bitzoom.jpg`
 
     return (
         <div className='items-center flex flex-wrap md:flex-nowrap px-10 py-3 gap-5'>

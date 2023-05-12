@@ -15,7 +15,7 @@ export const Error404Image = () => {
     }
 
     return(
-        <img src='../../assets/images/Err404.png' alt='' style={style404} />
+        <img src='/images/Err404.png' alt='' style={style404} />
     )
 };
 
@@ -35,7 +35,7 @@ export const LogoImage:React.FC<GlobalTypes> = (
 
     return(
         <Link href='/'>
-            <img src='../../assets/icons/icon.png' alt='logo' style={logoStyle} className={className}/>
+            <img src='/icons/icon.png' alt='logo' style={logoStyle} className={className}/>
         </Link>
     )
 };

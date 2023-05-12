@@ -2,7 +2,7 @@ import * as React from 'react'
 
 export const Utility = () => {
 
-    const image = `../../assets/images/coinCandy.jpg`
+    const image = `/images/coinCandy.jpg`
 
     return (
         <div id='utility' className='z-0 items-center flex flex-wrap md:flex-nowrap px-10 py-3 gap-5'>

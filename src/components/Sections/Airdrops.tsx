@@ -4,7 +4,7 @@ import { MediaIcon } from '../common/styled'
 
 export const Airdrops = () => {
 
-    const image = `../../assets/images/bitkoin.jpg`
+    const image = `/images/bitkoin.jpg`
 
     return (
         <div id='airdrops' className='items-center flex flex-wrap md:flex-nowrap px-10 py-3 gap-5'>

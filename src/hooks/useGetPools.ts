@@ -6,7 +6,7 @@ import { FACTORY_CONTRACT } from "../utils/contracts";
 async function useGetPools(rpc: string) {
   let poolContracts = new Array();
 
-  const provider = ethers.providers.JsonRpcProvider(rpc);
+  const provider = new ethers.providers.JsonRpcProvider(rpc);
 
   const factoryContract = new ethers.Contract(
     FACTORY_CONTRACT,
